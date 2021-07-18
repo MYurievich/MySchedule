@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		B514060826A307EE00623AED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514060726A307EE00623AED /* AppDelegate.swift */; };
 		B514060A26A307EE00623AED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514060926A307EE00623AED /* SceneDelegate.swift */; };
-		B514060C26A307EE00623AED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514060B26A307EE00623AED /* ViewController.swift */; };
-		B514060F26A307EE00623AED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B514060D26A307EE00623AED /* Main.storyboard */; };
+		B514060C26A307EE00623AED /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514060B26A307EE00623AED /* MainTabBarController.swift */; };
 		B514061126A307F200623AED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B514061026A307F200623AED /* Assets.xcassets */; };
 		B514061426A307F200623AED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B514061226A307F200623AED /* LaunchScreen.storyboard */; };
 		B514061F26A307F200623AED /* MyScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514061E26A307F200623AED /* MyScheduleTests.swift */; };
 		B514062A26A307F200623AED /* MyScheduleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514062926A307F200623AED /* MyScheduleUITests.swift */; };
+		B514063B26A30E4F00623AED /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514063A26A30E4F00623AED /* ScheduleViewController.swift */; };
+		B514063D26A30EA700623AED /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514063C26A30EA700623AED /* TasksViewController.swift */; };
+		B514063F26A30EE100623AED /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514063E26A30EE100623AED /* ContactsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +40,7 @@
 		B514060426A307EE00623AED /* MySchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B514060726A307EE00623AED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B514060926A307EE00623AED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B514060B26A307EE00623AED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B514060E26A307EE00623AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B514060B26A307EE00623AED /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B514061026A307F200623AED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B514061326A307F200623AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B514061526A307F200623AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +50,9 @@
 		B514062526A307F200623AED /* MyScheduleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyScheduleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B514062926A307F200623AED /* MyScheduleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleUITests.swift; sourceTree = "<group>"; };
 		B514062B26A307F200623AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B514063A26A30E4F00623AED /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		B514063C26A30EA700623AED /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		B514063E26A30EE100623AED /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +103,9 @@
 		B514060626A307EE00623AED /* MySchedule */ = {
 			isa = PBXGroup;
 			children = (
-				B514060726A307EE00623AED /* AppDelegate.swift */,
-				B514060926A307EE00623AED /* SceneDelegate.swift */,
-				B514060B26A307EE00623AED /* ViewController.swift */,
-				B514060D26A307EE00623AED /* Main.storyboard */,
-				B514061026A307F200623AED /* Assets.xcassets */,
-				B514061226A307F200623AED /* LaunchScreen.storyboard */,
-				B514061526A307F200623AED /* Info.plist */,
+				B514063926A308B000623AED /* Application */,
+				B514063726A3086B00623AED /* Controllers */,
+				B514063826A3087400623AED /* Resources */,
 			);
 			path = MySchedule;
 			sourceTree = "<group>";
@@ -126,6 +126,36 @@
 				B514062B26A307F200623AED /* Info.plist */,
 			);
 			path = MyScheduleUITests;
+			sourceTree = "<group>";
+		};
+		B514063726A3086B00623AED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B514060B26A307EE00623AED /* MainTabBarController.swift */,
+				B514063A26A30E4F00623AED /* ScheduleViewController.swift */,
+				B514063C26A30EA700623AED /* TasksViewController.swift */,
+				B514063E26A30EE100623AED /* ContactsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B514063826A3087400623AED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B514061026A307F200623AED /* Assets.xcassets */,
+				B514061226A307F200623AED /* LaunchScreen.storyboard */,
+				B514061526A307F200623AED /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B514063926A308B000623AED /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B514060726A307EE00623AED /* AppDelegate.swift */,
+				B514060926A307EE00623AED /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +263,6 @@
 			files = (
 				B514061426A307F200623AED /* LaunchScreen.storyboard in Resources */,
 				B514061126A307F200623AED /* Assets.xcassets in Resources */,
-				B514060F26A307EE00623AED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B514060C26A307EE00623AED /* ViewController.swift in Sources */,
+				B514060C26A307EE00623AED /* MainTabBarController.swift in Sources */,
 				B514060826A307EE00623AED /* AppDelegate.swift in Sources */,
+				B514063D26A30EA700623AED /* TasksViewController.swift in Sources */,
 				B514060A26A307EE00623AED /* SceneDelegate.swift in Sources */,
+				B514063B26A30E4F00623AED /* ScheduleViewController.swift in Sources */,
+				B514063F26A30EE100623AED /* ContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +328,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B514060D26A307EE00623AED /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B514060E26A307EE00623AED /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B514061226A307F200623AED /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,7 +462,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9M22VP3W56;
-				INFOPLIST_FILE = MySchedule/Info.plist;
+				INFOPLIST_FILE = MySchedule/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +481,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9M22VP3W56;
-				INFOPLIST_FILE = MySchedule/Info.plist;
+				INFOPLIST_FILE = MySchedule/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
