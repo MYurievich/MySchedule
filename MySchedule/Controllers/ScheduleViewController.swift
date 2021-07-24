@@ -28,6 +28,14 @@ class ScheduleViewController: UIViewController {
         return showHideButton
     }()
     
+    let tableView: UITableView = {
+       let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    let identifiableCell = "cell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +44,10 @@ class ScheduleViewController: UIViewController {
         
         calendar.delegate = self
         calendar.dataSource = self
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ScheduleTableViewCell.self, forCellReuseIdentifier: identifiableCell)
         
         calendar.scope = .week
         
@@ -89,6 +101,25 @@ extension ScheduleViewController: FSCalendarDataSource, FSCalendarDelegate {
     }
 }
 
+//MARK: UITableViewDataSource, UITableViewDelegate
+
+extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifiableCell, for: indexPath) as! ScheduleTableViewCell
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+
+}
+
 //MARK: SetConstraints
 
 extension ScheduleViewController {
@@ -112,6 +143,14 @@ extension ScheduleViewController {
             showHideButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             showHideButton.widthAnchor.constraint(equalToConstant: 100),
             showHideButton.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: showHideButton.bottomAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
         
     }

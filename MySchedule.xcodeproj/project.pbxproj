@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,10 @@
 		B514063B26A30E4F00623AED /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514063A26A30E4F00623AED /* ScheduleViewController.swift */; };
 		B514063D26A30EA700623AED /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514063C26A30EA700623AED /* TasksViewController.swift */; };
 		B514063F26A30EE100623AED /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514063E26A30EE100623AED /* ContactsViewController.swift */; };
+		B5362FEA26A9E25C00391B06 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FE926A9E25C00391B06 /* ScheduleTableViewCell.swift */; };
+		B5362FEE26AC3AAB00391B06 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FED26AC3AAB00391B06 /* UIStackView.swift */; };
+		B5362FF026AC49D000391B06 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FEF26AC49D000391B06 /* UILabel.swift */; };
+		B5362FF226AC4CBC00391B06 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FF126AC4CBC00391B06 /* UIFont.swift */; };
 		C9FADEC12FF57BE38DDC9E3F /* Pods_MyScheduleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84378A5CD228E14DC7F1E61 /* Pods_MyScheduleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +68,10 @@
 		B514063A26A30E4F00623AED /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B514063C26A30EA700623AED /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		B514063E26A30EE100623AED /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		B5362FE926A9E25C00391B06 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		B5362FED26AC3AAB00391B06 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		B5362FEF26AC49D000391B06 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		B5362FF126AC4CBC00391B06 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		D84378A5CD228E14DC7F1E61 /* Pods_MyScheduleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyScheduleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,7 +123,6 @@
 				0BDC9EDCECDF73AA0E9B58CF /* Pods-MyScheduleTests.debug.xcconfig */,
 				35B9B9D5E07D7966C1A77755 /* Pods-MyScheduleTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -144,6 +151,7 @@
 		B514060626A307EE00623AED /* MySchedule */ = {
 			isa = PBXGroup;
 			children = (
+				B5362FEB26AC3A8500391B06 /* Extensions */,
 				B514063926A308B000623AED /* Application */,
 				B514063726A3086B00623AED /* Controllers */,
 				B514063826A3087400623AED /* Resources */,
@@ -174,6 +182,7 @@
 			children = (
 				B514060B26A307EE00623AED /* MainTabBarController.swift */,
 				B514063A26A30E4F00623AED /* ScheduleViewController.swift */,
+				B5362FE926A9E25C00391B06 /* ScheduleTableViewCell.swift */,
 				B514063C26A30EA700623AED /* TasksViewController.swift */,
 				B514063E26A30EE100623AED /* ContactsViewController.swift */,
 			);
@@ -197,6 +206,24 @@
 				B514060926A307EE00623AED /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		B5362FEB26AC3A8500391B06 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5362FEC26AC3A9600391B06 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B5362FEC26AC3A9600391B06 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B5362FED26AC3AAB00391B06 /* UIStackView.swift */,
+				B5362FEF26AC49D000391B06 /* UILabel.swift */,
+				B5362FF126AC4CBC00391B06 /* UIFont.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,10 +464,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B514060C26A307EE00623AED /* MainTabBarController.swift in Sources */,
+				B5362FEA26A9E25C00391B06 /* ScheduleTableViewCell.swift in Sources */,
 				B514060826A307EE00623AED /* AppDelegate.swift in Sources */,
+				B5362FEE26AC3AAB00391B06 /* UIStackView.swift in Sources */,
+				B5362FF026AC49D000391B06 /* UILabel.swift in Sources */,
 				B514063D26A30EA700623AED /* TasksViewController.swift in Sources */,
 				B514060A26A307EE00623AED /* SceneDelegate.swift in Sources */,
 				B514063B26A30E4F00623AED /* ScheduleViewController.swift in Sources */,
+				B5362FF226AC4CBC00391B06 /* UIFont.swift in Sources */,
 				B514063F26A30EE100623AED /* ContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
