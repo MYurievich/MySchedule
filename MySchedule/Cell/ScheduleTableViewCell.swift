@@ -24,6 +24,8 @@ class ScheduleTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
             setConsctraints()
+        
+        self.selectionStyle = .none 
     }
     
     required init?(coder: NSCoder) {

@@ -23,6 +23,8 @@
 		B5362FEE26AC3AAB00391B06 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FED26AC3AAB00391B06 /* UIStackView.swift */; };
 		B5362FF026AC49D000391B06 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FEF26AC49D000391B06 /* UILabel.swift */; };
 		B5362FF226AC4CBC00391B06 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FF126AC4CBC00391B06 /* UIFont.swift */; };
+		B5362FF526AC97BA00391B06 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FF426AC97BA00391B06 /* TasksTableViewCell.swift */; };
+		B5362FF826ACB05A00391B06 /* PressButtonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FF726ACB05A00391B06 /* PressButtonProtocols.swift */; };
 		C9FADEC12FF57BE38DDC9E3F /* Pods_MyScheduleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84378A5CD228E14DC7F1E61 /* Pods_MyScheduleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		B5362FED26AC3AAB00391B06 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		B5362FEF26AC49D000391B06 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		B5362FF126AC4CBC00391B06 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		B5362FF426AC97BA00391B06 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
+		B5362FF726ACB05A00391B06 /* PressButtonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressButtonProtocols.swift; sourceTree = "<group>"; };
 		D84378A5CD228E14DC7F1E61 /* Pods_MyScheduleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyScheduleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,8 +155,10 @@
 		B514060626A307EE00623AED /* MySchedule */ = {
 			isa = PBXGroup;
 			children = (
+				B5362FF626ACB04700391B06 /* Protocols */,
 				B5362FEB26AC3A8500391B06 /* Extensions */,
 				B514063926A308B000623AED /* Application */,
+				B5362FF326AC979400391B06 /* Cell */,
 				B514063726A3086B00623AED /* Controllers */,
 				B514063826A3087400623AED /* Resources */,
 			);
@@ -182,7 +188,6 @@
 			children = (
 				B514060B26A307EE00623AED /* MainTabBarController.swift */,
 				B514063A26A30E4F00623AED /* ScheduleViewController.swift */,
-				B5362FE926A9E25C00391B06 /* ScheduleTableViewCell.swift */,
 				B514063C26A30EA700623AED /* TasksViewController.swift */,
 				B514063E26A30EE100623AED /* ContactsViewController.swift */,
 			);
@@ -224,6 +229,23 @@
 				B5362FF126AC4CBC00391B06 /* UIFont.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		B5362FF326AC979400391B06 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B5362FE926A9E25C00391B06 /* ScheduleTableViewCell.swift */,
+				B5362FF426AC97BA00391B06 /* TasksTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B5362FF626ACB04700391B06 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B5362FF726ACB05A00391B06 /* PressButtonProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +495,8 @@
 				B514063B26A30E4F00623AED /* ScheduleViewController.swift in Sources */,
 				B5362FF226AC4CBC00391B06 /* UIFont.swift in Sources */,
 				B514063F26A30EE100623AED /* ContactsViewController.swift in Sources */,
+				B5362FF526AC97BA00391B06 /* TasksTableViewCell.swift in Sources */,
+				B5362FF826ACB05A00391B06 /* PressButtonProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
