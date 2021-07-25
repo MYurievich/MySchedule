@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol PressReadyButtonProtocol: class {
+protocol PressReadyButtonProtocol: AnyObject {
     func readeButtonTapped(indexPath: IndexPath)
 }

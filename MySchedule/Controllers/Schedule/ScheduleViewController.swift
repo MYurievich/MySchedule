@@ -55,6 +55,13 @@ class ScheduleViewController: UIViewController {
         swipeAction()
         
         showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(rightBarButtonTapped))
+    }
+
+    @objc func rightBarButtonTapped() {
+        let scheduleOptionViewController = ScheduleOptionViewController()
+        navigationController?.pushViewController(scheduleOptionViewController, animated: true)
     }
     
     @objc func showHideButtonTapped() {
