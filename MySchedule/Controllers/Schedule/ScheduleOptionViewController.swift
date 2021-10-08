@@ -9,8 +9,10 @@ import UIKit
 
 class ScheduleOptionViewController: UITableViewController {
     
-    let identifiableCell = "cell"
-    let identifiableHeader = "header"
+    let idOptionsScheduleCell = "idOptionsScheduleCell"
+    let idOptionsScheduleHeader = "idOptionsScheduleHeader"
+    
+    let headerNameArray = ["DATE AND TIME", "LESSON", " TEACHER", "COLOR", "PERIOD"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +27,8 @@ class ScheduleOptionViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.register(ScheduleOptionViewControllerCell.self, forCellReuseIdentifier: identifiableCell)
-        tableView.register(ScheduleHeaderOptionTableViewCell.self, forHeaderFooterViewReuseIdentifier: identifiableHeader)
+        tableView.register(ScheduleOptionViewControllerCell.self, forCellReuseIdentifier: idOptionsScheduleCell)
+        tableView.register(HeaderOptionTableViewCell.self, forHeaderFooterViewReuseIdentifier: idOptionsScheduleHeader)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,7 +36,7 @@ class ScheduleOptionViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifiableCell, for: indexPath) as! ScheduleOptionViewControllerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: idOptionsScheduleCell, for: indexPath) as! ScheduleOptionViewControllerCell
         cell.cellConfigure(indexPath: indexPath)
         return cell
     }
@@ -55,8 +57,8 @@ class ScheduleOptionViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifiableHeader) as! ScheduleHeaderOptionTableViewCell
-        header.headerConfigure(section: section)
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: idOptionsScheduleHeader) as! HeaderOptionTableViewCell
+        header.headerConfigure(nameArray: headerNameArray, section: section)
         return header
     }
     

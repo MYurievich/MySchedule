@@ -7,11 +7,10 @@
 
 import UIKit
 
-class ScheduleHeaderOptionTableViewCell: UITableViewHeaderFooterView {
+class HeaderOptionTableViewCell: UITableViewHeaderFooterView {
     
     let headerLabel = UILabel(text: "", font: UIFont.avenirNext14(), alignment: .left)
-    
-    let headerNameArray = ["DATE AND TIME", "LESSON", " TEACHER", "COLOR", "PERIOD"]
+
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -29,7 +28,7 @@ class ScheduleHeaderOptionTableViewCell: UITableViewHeaderFooterView {
     
 }
 
-extension ScheduleHeaderOptionTableViewCell {
+extension HeaderOptionTableViewCell {
     
     func setConsctraints() {
         
@@ -41,7 +40,7 @@ extension ScheduleHeaderOptionTableViewCell {
         
     }
     
-    func headerConfigure(section: Int) {
-        headerLabel.text = headerNameArray[section]
+    func headerConfigure(nameArray: [String], section: Int) {
+        headerLabel.text = nameArray[section]
     }
 }
