@@ -1,21 +1,20 @@
 //
-//  TaskOptionTableView.swift
+//  ContactOptionTableViewController.swift
 //  MySchedule
 //
-//  Created by Максим on 08.10.2021.
+//  Created by Максим on 09.10.2021.
 //
 
 import UIKit
 
-class TaskOptionTableView: UITableViewController {
+class ContactOptionTableViewController: UITableViewController {
     
-    let idOptionsTasksCell = "idOptionsTasksCell"
-    let idOptionsTasksHeader = "idOptionsTasksHeader"
+    let idOptionsContactCell = "idOptionsContactCell"
+    let idOptionsContactHeader = "idOptionsContactHeader"
     
-    let headerNameArray = ["DATE", "LESSON", "TASK", "COLOR"]
+    let headerNameArray = ["NAME", "PHONE", " MAIL", "TYPE", "CHOOSE IMAGE"]
     
-    
-    let cellNameArray = ["Date", "Lesson", "Task", ""]
+    let cellNameArray = ["Name", "Phone", "Mail", "Type", ""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,35 +24,35 @@ class TaskOptionTableView: UITableViewController {
         
         tableView.bounces = false
         
-        title = "Option Tasks"
+        title = "Option Schedule"
         
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.register(OptionsTableViewCell.self, forCellReuseIdentifier: idOptionsTasksCell)
-        tableView.register(HeaderOptionTableViewCell.self, forHeaderFooterViewReuseIdentifier: idOptionsTasksHeader)
+        tableView.register(OptionsTableViewCell.self, forCellReuseIdentifier: idOptionsContactCell)
+        tableView.register(HeaderOptionTableViewCell.self, forHeaderFooterViewReuseIdentifier: idOptionsContactHeader)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idOptionsTasksCell, for: indexPath) as! OptionsTableViewCell
-        cell.cellTasksConfigure(nameArray: cellNameArray, indexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: idOptionsContactCell, for: indexPath) as! OptionsTableViewCell
+        cell.cellContactConfigure(nameArray: cellNameArray, indexPath: indexPath)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 1
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        indexPath.section == 4 ? 200 : 44
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: idOptionsTasksHeader) as! HeaderOptionTableViewCell
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: idOptionsContactHeader) as! HeaderOptionTableViewCell
         header.headerConfigure(nameArray: headerNameArray, section: section)
         return header
     }
@@ -66,14 +65,14 @@ class TaskOptionTableView: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath) as! OptionsTableViewCell
         
         switch indexPath.section {
-        case 0: alertDate(label: cell.nameCellLabel) { numberWeekDay, date in
-            print(numberWeekDay, date)
+        case 0: alertForCellName(label: cell.nameCellLabel, name: "Name Contact", placeholder: "Enter name contact")
+        case 1: alertForCellName(label: cell.nameCellLabel, name: "Phone Contact", placeholder: "Enter phone contact")
+        case 2: alertForCellName(label: cell.nameCellLabel, name: "Mail Contact", placeholder: "Enter mail contact")
+        case 3: alertFriendOrTeacher(label: cell.nameCellLabel) { type in
+            print(type)
         }
-        case 1: alertForCellName(label: cell.nameCellLabel, name: "Name Lesson", placeholder: "Enter name lesson")
-        case 2: alertForCellName(label: cell.nameCellLabel, name: "Name Task", placeholder: "Enter name task")
-        case 3: pushControllers(vc: ColorTasksTableViewController())
         default:
-            print("Error")
+            print("Tap ContactTableView")
         }
     }
     

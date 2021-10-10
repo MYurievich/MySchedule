@@ -7,14 +7,15 @@
 
 import UIKit
 
-class ScheduleOptionViewControllerCell: UITableViewCell {
+class OptionsTableViewCell: UITableViewCell {
 
-    let backgroundViewCell: UIView = {
-       let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 10
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    let backgroundViewCell: UIImageView = {
+       let imageView = UIImageView()
+        imageView.backgroundColor = .white
+        imageView.layer.cornerRadius = 10
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     let repeatSwitch: UISwitch = {
@@ -33,13 +34,7 @@ class ScheduleOptionViewControllerCell: UITableViewCell {
         return label
     }()
     
-    let cellNameArray = [["Date", "Time"],
-                         ["Name", "Type", "Building", "Audience"],
-                         ["Teacher", "Name"],
-                         [""],
-                         ["Repeat every 7 days"]
-    ]
-    
+ 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -58,7 +53,7 @@ class ScheduleOptionViewControllerCell: UITableViewCell {
     
 }
 
-extension ScheduleOptionViewControllerCell {
+extension OptionsTableViewCell {
     
     func setConsctraints() {
         
@@ -82,10 +77,11 @@ extension ScheduleOptionViewControllerCell {
             repeatSwitch.trailingAnchor.constraint(equalTo: backgroundViewCell.trailingAnchor, constant: -20)
         ])
         
+        
 }
     
-    func cellConfigure(indexPath: IndexPath) {
-        nameCellLabel.text = cellNameArray[indexPath.section][indexPath.row]
+    func cellScheduleConfigure(nameArray: [[String]], indexPath: IndexPath) {
+        nameCellLabel.text = nameArray[indexPath.section][indexPath.row]
         
         if indexPath == [3,0] {
             backgroundViewCell.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
@@ -94,6 +90,19 @@ extension ScheduleOptionViewControllerCell {
         if indexPath == [4,0] {
             repeatSwitch.isHidden = false
         }
+    }
+    
+    func cellTasksConfigure(nameArray: [String], indexPath: IndexPath) {
+        nameCellLabel.text = nameArray[indexPath.section]
+        
+        if indexPath == [3,0] {
+            backgroundViewCell.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
+        }
+    }
+    
+    func cellContactConfigure(nameArray: [String], indexPath: IndexPath) {
+        nameCellLabel.text = nameArray[indexPath.section]
+        indexPath.section == 4 ? backgroundViewCell.image = UIImage(systemName: "person.fill.badge.plus") : nil
     }
     
     @objc func switchChange(paramTarget: UISwitch) {

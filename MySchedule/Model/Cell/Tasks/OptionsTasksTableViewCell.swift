@@ -24,8 +24,6 @@ class OptionsTasksTableViewCell: UITableViewCell {
         return label
     }()
     
-    let cellNameArray = ["Date", "Lesson", "Task", ""]
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -62,12 +60,4 @@ extension OptionsTasksTableViewCell {
         ])
         
 }
-    
-    func cellConfigure(indexPath: IndexPath) {
-        nameCellLabel.text = cellNameArray[indexPath.section]
-        
-        if indexPath == [3,0] {
-            backgroundViewCell.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
-        }
-    }
 }
