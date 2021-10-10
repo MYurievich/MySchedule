@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ColorTableViewCell: UITableViewCell {
+class ColorsTableViewCell: UITableViewCell {
 
     let backgroundViewCell: UIView = {
        let view = UIView()
@@ -33,7 +33,7 @@ class ColorTableViewCell: UITableViewCell {
     
 }
 
-extension ColorTableViewCell {
+extension ColorsTableViewCell {
     
     func setConsctraints() {
         

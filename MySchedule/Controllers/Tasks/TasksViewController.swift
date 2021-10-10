@@ -62,7 +62,7 @@ class TasksViewController: UIViewController {
     }
     
     @objc func rightBarButtonTapped() {
-        let taskOption = TaskOptionTableView()
+        let taskOption = TaskOptionsTableView()
         navigationController?.pushViewController(taskOption, animated: true)
     }
     

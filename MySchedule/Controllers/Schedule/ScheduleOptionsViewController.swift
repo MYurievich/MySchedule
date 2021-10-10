@@ -7,10 +7,10 @@
 
 import UIKit
 
-class OptionScheduleViewController: UITableViewController {
+class ScheduleOptionsViewController: UITableViewController {
     
-    let idOptionsScheduleCell = "idOptionsScheduleCell"
-    let idOptionsScheduleHeader = "idOptionsScheduleHeader"
+    private let idOptionsScheduleCell = "idOptionsScheduleCell"
+    private let idOptionsScheduleHeader = "idOptionsScheduleHeader"
     
     let headerNameArray = ["DATE AND TIME", "LESSON", " TEACHER", "COLOR", "PERIOD"]
     
@@ -29,7 +29,7 @@ class OptionScheduleViewController: UITableViewController {
         
         tableView.bounces = false
         
-        title = "Option Schedule"
+        title = "Options Schedule"
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -91,7 +91,7 @@ class OptionScheduleViewController: UITableViewController {
             
         case [2,0]: pushControllers(vc: TeachersViewController())
            
-        case [3,0]: pushControllers(vc: ScheduleColorViewController())
+        case [3,0]: pushControllers(vc: ScheduleColorsViewController())
             
         default:
             print("Error")
