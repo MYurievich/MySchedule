@@ -22,7 +22,7 @@ class ContactOptionTableViewController: UITableViewController {
         tableView.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)
         tableView.separatorStyle = .none
         
-        tableView.bounces = false
+        tableView.bounces = true
         
         title = "Option Schedule"
         
@@ -71,6 +71,9 @@ class ContactOptionTableViewController: UITableViewController {
         case 3: alertFriendOrTeacher(label: cell.nameCellLabel) { type in
             print(type)
         }
+        case 4:  AlertPhotoCamera { [self] source in
+            chooseImagePicker(source: source)
+        }
         default:
             print("Tap ContactTableView")
         }
@@ -82,3 +85,28 @@ class ContactOptionTableViewController: UITableViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
     }
+
+extension ContactOptionTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func chooseImagePicker(source: UIImagePickerController.SourceType) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = source
+            present(imagePicker, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let cell = tableView.cellForRow(at: [4,0]) as! OptionsTableViewCell
+        
+        cell.backgroundViewCell.image = info[.editedImage] as? UIImage
+        cell.backgroundViewCell.contentMode = .scaleAspectFill
+        cell.backgroundViewCell.clipsToBounds = true
+        dismiss(animated: true)
+    }
+}

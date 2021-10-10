@@ -40,6 +40,7 @@
 		B5F5298C2711FA26008BDAAA /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F5298B2711FA26008BDAAA /* ContactsTableViewController.swift */; };
 		B5F5298E271204DD008BDAAA /* ContactOptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F5298D271204DD008BDAAA /* ContactOptionTableViewController.swift */; };
 		B5F52990271337E3008BDAAA /* AlertFriendOrTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F5298F271337E3008BDAAA /* AlertFriendOrTeacher.swift */; };
+		B5F5299227133CD2008BDAAA /* AlertPhotoCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F5299127133CD2008BDAAA /* AlertPhotoCamera.swift */; };
 		C9FADEC12FF57BE38DDC9E3F /* Pods_MyScheduleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84378A5CD228E14DC7F1E61 /* Pods_MyScheduleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		B5F5298B2711FA26008BDAAA /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactsTableViewController.swift; path = ../../Model/Cell/Contacts/ContactsTableViewController.swift; sourceTree = "<group>"; };
 		B5F5298D271204DD008BDAAA /* ContactOptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactOptionTableViewController.swift; sourceTree = "<group>"; };
 		B5F5298F271337E3008BDAAA /* AlertFriendOrTeacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFriendOrTeacher.swift; sourceTree = "<group>"; };
+		B5F5299127133CD2008BDAAA /* AlertPhotoCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPhotoCamera.swift; sourceTree = "<group>"; };
 		D84378A5CD228E14DC7F1E61 /* Pods_MyScheduleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyScheduleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -307,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				B5F5298B2711FA26008BDAAA /* ContactsTableViewController.swift */,
+				B5F5298D271204DD008BDAAA /* ContactOptionTableViewController.swift */,
 				B5F52978270F3A1D008BDAAA /* TeachersViewController.swift */,
 			);
 			path = Contacts;
@@ -329,6 +332,7 @@
 				B5F52970270F3406008BDAAA /* AlertTime.swift */,
 				B5F52972270F361B008BDAAA /* AlertForCellName.swift */,
 				B5F5298F271337E3008BDAAA /* AlertFriendOrTeacher.swift */,
+				B5F5299127133CD2008BDAAA /* AlertPhotoCamera.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -360,7 +364,6 @@
 			isa = PBXGroup;
 			children = (
 				B5F529862711F2DB008BDAAA /* ContactsTableViewCell.swift */,
-				B5F5298D271204DD008BDAAA /* ContactOptionTableViewController.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F5299227133CD2008BDAAA /* AlertPhotoCamera.swift in Sources */,
 				B53C007F270EF45F0047370F /* AlertDate.swift in Sources */,
 				B514060C26A307EE00623AED /* MainTabBarController.swift in Sources */,
 				B5362FEA26A9E25C00391B06 /* ScheduleTableViewCell.swift in Sources */,
