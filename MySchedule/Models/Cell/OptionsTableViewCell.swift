@@ -22,7 +22,6 @@ class OptionsTableViewCell: UITableViewCell {
         let repeatSwitch = UISwitch()
         repeatSwitch.isOn = true
         repeatSwitch.isHidden = true
-        repeatSwitch.onTintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         repeatSwitch.translatesAutoresizingMaskIntoConstraints = false
         return repeatSwitch
     }()
@@ -81,24 +80,21 @@ extension OptionsTableViewCell {
         
 }
     
-    func cellScheduleConfigure(nameArray: [[String]], indexPath: IndexPath) {
+    func cellScheduleConfigure(nameArray: [[String]], indexPath: IndexPath, hexColor: String) {
         nameCellLabel.text = nameArray[indexPath.section][indexPath.row]
+
+        let color = UIColor().colorFromHex(hexColor)
+        backgroundViewCell.backgroundColor = (indexPath.section == 3 ? color : .white)
         
-        if indexPath == [3,0] {
-            backgroundViewCell.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
-        }
-        
-        if indexPath == [4,0] {
-            repeatSwitch.isHidden = false
-        }
+        repeatSwitch.isHidden = (indexPath.section == 4 ? false : true)
+        repeatSwitch.onTintColor = color
     }
     
     func cellTasksConfigure(nameArray: [String], indexPath: IndexPath) {
         nameCellLabel.text = nameArray[indexPath.section]
+        backgroundViewCell.backgroundColor = (indexPath.section == 3 ? #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1) : .white)
         
-        if indexPath == [3,0] {
-            backgroundViewCell.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
-        }
+        
     }
     
     func cellContactConfigure(nameArray: [String], indexPath: IndexPath) {

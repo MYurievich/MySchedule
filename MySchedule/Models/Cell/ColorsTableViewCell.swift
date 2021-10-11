@@ -49,15 +49,14 @@ extension ColorsTableViewCell {
     func cellConfigure(indexPath: IndexPath) {
         
         switch indexPath.section {
-        case 0: backgroundViewCell.backgroundColor = .red
-        case 1: backgroundViewCell.backgroundColor = .orange
-        case 2: backgroundViewCell.backgroundColor = .yellow
-        case 3: backgroundViewCell.backgroundColor = .green
-        case 4: backgroundViewCell.backgroundColor = .blue
-        case 5: backgroundViewCell.backgroundColor = .systemBlue
-            
+        case 0: backgroundViewCell.backgroundColor = #colorLiteral(red: 0.7450980392, green: 0.1568627451, blue: 0.07450980392, alpha: 1)
+        case 1: backgroundViewCell.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.4980392157, blue: 0.3529411765, alpha: 1)
+        case 2: backgroundViewCell.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.6862745098, blue: 0.1333333333, alpha: 1)
+        case 3: backgroundViewCell.backgroundColor = #colorLiteral(red: 0.2745098039, green: 0.4862745098, blue: 0.1411764706, alpha: 1)
+        case 4: backgroundViewCell.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        case 5: backgroundViewCell.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.4980392157, blue: 0.7568627451, alpha: 1)
         default:
-        backgroundViewCell.backgroundColor = .purple
+        backgroundViewCell.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.01176470588, blue: 0.5607843137, alpha: 1)
         }
     }
 

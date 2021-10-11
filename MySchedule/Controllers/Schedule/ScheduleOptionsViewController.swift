@@ -21,7 +21,9 @@ class ScheduleOptionsViewController: UITableViewController {
                          [""],
                          ["Repeat every 7 days"]
     ]
-    private let scheduleModel = ScheduleModel()
+    private var scheduleModel = ScheduleModel()
+    
+    var hexColorCell = "1A4766"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +46,12 @@ class ScheduleOptionsViewController: UITableViewController {
     }
     
     @objc private func rightBarButtonTapped() {
-        
-        
-        
+        scheduleModel.scheduleColor = hexColorCell
         RealmManager.shared.saveScheduleModel(model: scheduleModel)
-        
+        scheduleModel = ScheduleModel() // сохранение с realmstudio
+        alertOk(title: "Success")
+        hexColorCell = "1A4766"
+        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,7 +60,7 @@ class ScheduleOptionsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idOptionsScheduleCell, for: indexPath) as! OptionsTableViewCell
-        cell.cellScheduleConfigure(nameArray: cellNameArray, indexPath: indexPath)
+        cell.cellScheduleConfigure(nameArray: cellNameArray, indexPath: indexPath, hexColor: hexColorCell)
         cell.SwitchRepeatDelegate = self
         return cell
     }
