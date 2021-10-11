@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import RealmSwift
 
 class ScheduleViewController: UIViewController {
     
@@ -34,6 +35,9 @@ class ScheduleViewController: UIViewController {
         return tableView
     }()
     
+    let localRealm = try! Realm()
+    var scheduleArray: Results<ScheduleModel>!
+    
     private let identifiableCell = "cell"
     
     override func viewDidLoad() {
@@ -53,6 +57,7 @@ class ScheduleViewController: UIViewController {
         
         setConstraints()
         swipeAction()
+        scheduleOnDay(date: Date())
         
         showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
         
@@ -102,6 +107,25 @@ class ScheduleViewController: UIViewController {
             break
         }
     }
+    
+    private func scheduleOnDay(date: Date) {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekday], from: date)
+        guard let weekday = components.weekday else { return }
+        
+        let dateStart = date
+        let dateEnd: Date = {
+            let components = DateComponents(day: 1, second: -1)
+            return Calendar.current.date(byAdding: components, to: dateStart)!
+        }()
+        
+        let predicateRepeat = NSPredicate(format: "scheduleWeekday = \(weekday) AND scheduleRepeat = true")
+        let predicateUnrepeat = NSPredicate(format: "scheduleRepeat = false AND scheduleDate BETWEEN %@", [dateStart, dateEnd])
+        let compound = NSCompoundPredicate(type: .or, subpredicates: [predicateRepeat, predicateUnrepeat])
+        
+        scheduleArray = localRealm.objects(ScheduleModel.self).filter(compound).sorted(byKeyPath: "scheduleTime")
+        tableView.reloadData()
+    }
 }
 //MARK: FSCalendarDataSource, FSCalendarDelegate
 
@@ -110,6 +134,10 @@ extension ScheduleViewController: FSCalendarDataSource, FSCalendarDelegate {
         calendarHeightConstraint.constant = bounds.height
         view.layoutIfNeeded()
     }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        scheduleOnDay(date: date)
+    }
 }
 
 //MARK: UITableViewDataSource, UITableViewDelegate
@@ -117,12 +145,13 @@ extension ScheduleViewController: FSCalendarDataSource, FSCalendarDelegate {
 extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return scheduleArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifiableCell, for: indexPath) as! ScheduleTableViewCell
-        
+        let model = scheduleArray[indexPath.row]
+        cell.configure(model: model)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
