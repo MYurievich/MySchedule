@@ -34,6 +34,7 @@ class OptionsTableViewCell: UITableViewCell {
         return label
     }()
     
+    weak var SwitchRepeatDelegate: SwitchRepeatProtocol?
  
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -106,10 +107,6 @@ extension OptionsTableViewCell {
     }
     
     @objc func switchChange(paramTarget: UISwitch) {
-        if paramTarget.isOn {
-            print("tap")
-        } else {
-            print("tap")
-        }
+        SwitchRepeatDelegate?.switchRepeat(value: paramTarget.isOn)
     }
 }
