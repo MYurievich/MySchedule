@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class MainTabBarController: UITabBarController {
 
