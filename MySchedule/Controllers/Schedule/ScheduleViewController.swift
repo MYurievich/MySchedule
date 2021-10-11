@@ -36,9 +36,15 @@ class ScheduleViewController: UIViewController {
     }()
     
     let localRealm = try! Realm()
+    
     var scheduleArray: Results<ScheduleModel>!
     
     private let identifiableCell = "cell"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -158,6 +164,17 @@ extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
         return 80
     }
 
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let editingRow = scheduleArray[indexPath.row]
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, competionHandler in
+            RealmManager.shared.deleteScheduleModel(model: editingRow)
+            tableView.reloadData()
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
 }
 
 //MARK: SetConstraints

@@ -10,13 +10,13 @@ import Foundation
 
 class ScheduleModel: Object {
     
-    @Persisted var scheduleDate = Date()
-    @Persisted var scheduleTime = Date()
-    @Persisted var scheduleName: String = "Unkown"
-    @Persisted var scheduleType: String = "Unkown"
-    @Persisted var scheduleBuilding: String = "Unkown"
-    @Persisted var scheduleAudience: String = "Unkown"
-    @Persisted var scheduleTeacher: String = "Unkown"
+    @Persisted var scheduleDate: Date?
+    @Persisted var scheduleTime: Date?
+    @Persisted var scheduleName: String = "Unknown"
+    @Persisted var scheduleType: String = "Unknown"
+    @Persisted var scheduleBuilding: String = "Unknown"
+    @Persisted var scheduleAudience: String = "Unknown"
+    @Persisted var scheduleTeacher: String = "Unknown"
     @Persisted var scheduleColor: String = "1A4766"
     @Persisted var scheduleRepeat: Bool = true
     @Persisted var scheduleWeekday: Int = 1

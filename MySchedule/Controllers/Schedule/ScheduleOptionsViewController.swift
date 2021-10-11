@@ -46,13 +46,19 @@ class ScheduleOptionsViewController: UITableViewController {
     }
     
     @objc private func rightBarButtonTapped() {
+        
+        if scheduleModel.scheduleDate == nil || scheduleModel.scheduleTime == nil || scheduleModel.scheduleName == "Unknown" {
+            alertOk(title: "Error", message: "Requered fields: DATE, TIME, NAME")
+        } else {
+        
         scheduleModel.scheduleColor = hexColorCell
         RealmManager.shared.saveScheduleModel(model: scheduleModel)
         scheduleModel = ScheduleModel() // сохранение с realmstudio
-        alertOk(title: "Success")
+        alertOk(title: "Success", message: nil)
         hexColorCell = "1A4766"
         tableView.reloadData()
     }
+}
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 5
