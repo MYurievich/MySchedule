@@ -9,12 +9,14 @@ import UIKit
 
 class ContactsOptionsTableViewController: UITableViewController {
     
-    let idOptionsContactCell = "idOptionsContactCell"
-    let idOptionsContactHeader = "idOptionsContactHeader"
+    private let idOptionsContactCell = "idOptionsContactCell"
+    private let idOptionsContactHeader = "idOptionsContactHeader"
     
-    let headerNameArray = ["NAME", "PHONE", " MAIL", "TYPE", "CHOOSE IMAGE"]
+    private let headerNameArray = ["NAME", "PHONE", " MAIL", "TYPE", "CHOOSE IMAGE"]
+    private let cellNameArray = ["Name", "Phone", "Mail", "Type", ""]
     
-    let cellNameArray = ["Name", "Phone", "Mail", "Type", ""]
+    private var imageIsChanged = false
+    private var contactModel = ContactModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,39 @@ class ContactsOptionsTableViewController: UITableViewController {
         
         tableView.register(OptionsTableViewCell.self, forCellReuseIdentifier: idOptionsContactCell)
         tableView.register(HeaderOptionTableViewCell.self, forHeaderFooterViewReuseIdentifier: idOptionsContactHeader)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
+    }
+    
+    @objc private func saveButtonTapped() {
+        
+        if contactModel.contactsName == "Unknown" || contactModel.contactsType == "Unknown" {
+            alertOk(title: "Error", message: "Requered fields: Name and TYPE")
+        } else {
+            setImageModel()
+            
+            RealmManager.shared.saveContactModel(model: contactModel)
+            contactModel = ContactModel()
+            
+            alertOk(title: "Success", message: nil)
+            tableView.reloadData()
+        }
+        
+         func setImageModel() {
+            
+            if imageIsChanged {
+                let cell = tableView.cellForRow(at: [4,0]) as! OptionsTableViewCell
+                
+                let image = cell.backgroundViewCell.image
+                guard let imageDate = image?.pngData() else { return }
+                contactModel.contactsImage = imageDate
+                
+                cell.backgroundViewCell.contentMode = .scaleAspectFit
+                imageIsChanged = false
+            } else {
+                contactModel.contactsImage = nil
+            }
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,7 +93,7 @@ class ContactsOptionsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 30
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -66,16 +101,16 @@ class ContactsOptionsTableViewController: UITableViewController {
         
         switch indexPath.section {
         case 0: alertForCellName(label: cell.nameCellLabel, name: "Name Contact", placeholder: "Enter name contact") { text in
-            
+            self.contactModel.contactsName = text
         }
         case 1: alertForCellName(label: cell.nameCellLabel, name: "Phone Contact", placeholder: "Enter phone contact") { text in
-            
+            self.contactModel.contactsPhone = text
         }
         case 2: alertForCellName(label: cell.nameCellLabel, name: "Mail Contact", placeholder: "Enter mail contact") { text in
-            
+            self.contactModel.contactsMail = text
         }
         case 3: alertFriendOrTeacher(label: cell.nameCellLabel) { type in
-            print(type)
+            self.contactModel.contactsType = type
         }
         case 4:  AlertPhotoCamera { [self] source in
             chooseImagePicker(source: source)
@@ -113,6 +148,7 @@ extension ContactsOptionsTableViewController: UIImagePickerControllerDelegate, U
         cell.backgroundViewCell.image = info[.editedImage] as? UIImage
         cell.backgroundViewCell.contentMode = .scaleAspectFill
         cell.backgroundViewCell.clipsToBounds = true
+        imageIsChanged = true
         dismiss(animated: true)
     }
 }

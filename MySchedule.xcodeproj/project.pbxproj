@@ -21,6 +21,8 @@
 		B5320883271424F900F47C0D /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5320882271424F900F47C0D /* ContactsTableViewController.swift */; };
 		B53208852714408B00F47C0D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53208842714408B00F47C0D /* UIColor.swift */; };
 		B53208872714517D00F47C0D /* AlertOk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53208862714517D00F47C0D /* AlertOk.swift */; };
+		B5320889271489C800F47C0D /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5320888271489C800F47C0D /* TaskModel.swift */; };
+		B532088B271497AE00F47C0D /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532088A271497AE00F47C0D /* ContactModel.swift */; };
 		B5362FEA26A9E25C00391B06 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FE926A9E25C00391B06 /* ScheduleTableViewCell.swift */; };
 		B5362FEE26AC3AAB00391B06 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FED26AC3AAB00391B06 /* UIStackView.swift */; };
 		B5362FF026AC49D000391B06 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5362FEF26AC49D000391B06 /* UILabel.swift */; };
@@ -94,6 +96,8 @@
 		B5320882271424F900F47C0D /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		B53208842714408B00F47C0D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B53208862714517D00F47C0D /* AlertOk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOk.swift; sourceTree = "<group>"; };
+		B5320888271489C800F47C0D /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		B532088A271497AE00F47C0D /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		B5362FE926A9E25C00391B06 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		B5362FED26AC3AAB00391B06 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		B5362FEF26AC49D000391B06 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 			isa = PBXGroup;
 			children = (
 				B5F5299927141E12008BDAAA /* ScheduleModel.swift */,
+				B5320888271489C800F47C0D /* TaskModel.swift */,
+				B532088A271497AE00F47C0D /* ContactModel.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -666,6 +672,7 @@
 				B5F52971270F3406008BDAAA /* AlertTime.swift in Sources */,
 				B5F5299A27141E12008BDAAA /* ScheduleModel.swift in Sources */,
 				B53208852714408B00F47C0D /* UIColor.swift in Sources */,
+				B532088B271497AE00F47C0D /* ContactModel.swift in Sources */,
 				B514060A26A307EE00623AED /* SceneDelegate.swift in Sources */,
 				B514063B26A30E4F00623AED /* ScheduleViewController.swift in Sources */,
 				B5362FF226AC4CBC00391B06 /* UIFont.swift in Sources */,
@@ -676,6 +683,7 @@
 				B5F52976270F38E8008BDAAA /* ScheduleColorsViewController.swift in Sources */,
 				B5F5297F27107279008BDAAA /* TaskOptionsTableView.swift in Sources */,
 				B5362FF826ACB05A00391B06 /* PressButtonProtocols.swift in Sources */,
+				B5320889271489C800F47C0D /* TaskModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

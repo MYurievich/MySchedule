@@ -90,11 +90,12 @@ extension OptionsTableViewCell {
         repeatSwitch.onTintColor = color
     }
     
-    func cellTasksConfigure(nameArray: [String], indexPath: IndexPath) {
+    func cellTasksConfigure(nameArray: [String], indexPath: IndexPath, hexColor: String) {
+        
         nameCellLabel.text = nameArray[indexPath.section]
-        backgroundViewCell.backgroundColor = (indexPath.section == 3 ? #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1) : .white)
         
-        
+        let color = UIColor().colorFromHex(hexColor)
+        backgroundViewCell.backgroundColor = (indexPath.section == 3 ? color: .white)
     }
     
     func cellContactConfigure(nameArray: [String], indexPath: IndexPath) {

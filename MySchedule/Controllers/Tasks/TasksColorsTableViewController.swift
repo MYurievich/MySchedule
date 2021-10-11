@@ -31,6 +31,13 @@ class TasksColorsTableViewController: UITableViewController {
         tableView.register(HeaderOptionTableViewCell.self, forHeaderFooterViewReuseIdentifier: idTaskScheduleHeader)
     }
     
+    private func setColor(color: String) {
+        let taskOptions = self.navigationController?.viewControllers[1] as? TaskOptionsTableView
+        taskOptions?.hexColorCell = color
+        taskOptions?.tableView.reloadRows(at: [[3,0]], with: .none)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 7
     }
@@ -56,10 +63,19 @@ class TasksColorsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 30
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-       print("tapCell")
+        switch indexPath.section {
+        case 0: setColor(color: "BE2813")
+        case 1: setColor(color: "F07F5A")
+        case 2: setColor(color: "F3AF22")
+        case 3: setColor(color: "467C24")
+        case 4: setColor(color: "2D7FC1")
+        case 5: setColor(color: "1A4766")
+        case 6: setColor(color: "2D038F")
+        default:
+            setColor(color: "FFFFFF")
+        }
     }
     }
