@@ -82,10 +82,26 @@ class ContactsViewController: UIViewController {
     }
 }
     
+    @objc private func editingModel(contactModel: ContactModel) {
+        let contactOption = ContactsOptionsTableViewController()
+        contactOption.contactModel = contactModel
+        contactOption.editModel = true
+        contactOption.cellNameArray = [
+            contactModel.contactsName,
+            contactModel.contactsPhone,
+            contactModel.contactsMail,
+            contactModel.contactsType,
+            ""
+        ]
+        contactOption.imageIsChanged = true
+        navigationController?.pushViewController(contactOption, animated: true)
+    }
+    
     @objc private func rightBarButtonTapped() {
         let contactOption = ContactsOptionsTableViewController()
         navigationController?.pushViewController(contactOption, animated: true)
     }
+    
     }
 
 //MARK: UITableViewDelegate, UITableViewDataSource
@@ -108,7 +124,8 @@ extension ContactsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tap")
+         let model = contactsArray[indexPath.row]
+         editingModel(contactModel: model)
     }
     
      func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

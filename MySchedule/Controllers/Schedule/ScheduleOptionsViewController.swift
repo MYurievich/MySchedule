@@ -15,13 +15,13 @@ class ScheduleOptionsViewController: UITableViewController {
     
     let headerNameArray = ["DATE AND TIME", "LESSON", " TEACHER", "COLOR", "PERIOD"]
     
-    let cellNameArray = [["Date", "Time"],
+    var cellNameArray = [["Date", "Time"],
                          ["Name", "Type", "Building", "Audience"],
-                         ["Teacher", "Name"],
+                         ["Teacher Name"],
                          [""],
                          ["Repeat every 7 days"]
     ]
-    private var scheduleModel = ScheduleModel()
+    var scheduleModel = ScheduleModel()
     
     var hexColorCell = "1A4766"
     
@@ -56,6 +56,7 @@ class ScheduleOptionsViewController: UITableViewController {
         scheduleModel = ScheduleModel() // сохранение с realmstudio
         alertOk(title: "Success", message: nil)
         hexColorCell = "1A4766"
+            cellNameArray[2][0] = "Teacher Name"
         tableView.reloadData()
     }
 }
